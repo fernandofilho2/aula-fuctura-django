@@ -1,4 +1,4 @@
-from .models import Aluno
+from .models import Aluno,Cadastro
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404 
 
@@ -23,7 +23,7 @@ def contact_view(request):
         print('name:', name)
         print('Email:', email)
         print('Message:', message)
-    return render(request, 'main/contact.html')
+    return render(request, 'main/aula-teste.html')
 
 #####################
 
@@ -75,3 +75,31 @@ def deleteAluno(request, id):
     aluno = get_object_or_404(Aluno, pk=id)
     aluno.delete()
     return redirect('/')
+
+def novo_formulario(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('inputpassword')
+        print('Email:', email)
+        print('Password:', password)
+    return render(request, 'main/novo.formulario.html')
+
+def cadastro_endereco (request):
+    if request.method == 'POST':
+        email = request.POST.get('inputEmail4')
+        password = request.POST.get('inputPassword4')
+        address = request.POST.get('inputAddress')
+        address2 = request.POST.get('inputAddress2')
+        city = request.POST.get('inputCity')
+        state = request.POST.get('inputState')
+        zip = request.POST.get('inputZip')
+        
+        cadastro = Cadastro(email=email,password=password,
+                            address=address,address2=address2,city=city,state=state,zip=zip)
+        cadastro.save()
+    
+    return render(request, 'main/endereco.html')
+        
+
+
+

@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from .views import AlunoCreateView, AlunoUpdateView
 
+
 urlpatterns = [
     path('', views.alunoView, name='aluno-lista'),
     #################################
@@ -13,6 +14,14 @@ urlpatterns = [
     path('aluno/create/', AlunoCreateView.as_view(), name='aluno-create'),
     path('aluno/<int:pk>/update/', AlunoUpdateView.as_view(), name='aluno-update'),
     path('delete/<int:id>', views.deleteAluno, name="delete-aluno"),
+    path('cadastro',views.cadastro_endereco,name="cadastro" ),
+    path('cadastro', views.cadastro_endereco, name='cadastro'),
+    
 
+    
+
+    
+    
+    
 ]
 

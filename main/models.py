@@ -22,3 +22,18 @@ class Aluno(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Cadastro(models.Model):
+        
+    email = models.EmailField()
+    password = models.CharField(max_length=250)
+    address = models.CharField(max_length=250)
+    address2 = models.CharField(max_length=250)
+    city = models.CharField(max_length=250)
+    state = models.CharField(max_length=250)
+    zip = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.email
+    
+

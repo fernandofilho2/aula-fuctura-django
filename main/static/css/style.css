@@ -17,7 +17,10 @@ body {
     color: #666;
     line-height: 1.5;
   }
-  
+  label[for^="required"]::before {
+    content: " *";
+    color: red;
+  } 
 
 
   p {
@@ -84,4 +87,6 @@ body {
     margin: 5px;
     font-size: 20px;
     float: right;
+
+
 }
